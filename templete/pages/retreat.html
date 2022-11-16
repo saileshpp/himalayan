@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="custom__bg ">
+    <div class="container">
+        {% for retreat in retreats %}
+        <div class="section__title" data-aos="fade-in">
+            <h5 class="mx-0">{{retreat.title}} - Himalayan Retreat</h5>
+        </div>
+        <img src="{{retreat.img.url}}" alt="{{retreat.img}}" class="img-fluid w-100">
+        <div class="border border-top-0 p-4 custom-article">
+            <div class="section__title small" data-aos="fade-in">
+                <h5 class="mx-0">{{retreat.title}}</h5>
+            </div>
+            <div class="custom-fs-18 mb-4">
+                {{retreat.body|safe}}
+            </div>
+            <!-- INCLUDED  -->
+            <div class="mb-4">
+
+                <div class="section__title small pb-0" data-aos="fade-in">
+                    <h5 class="mx-0 fs-6 custom-text-secondary">Included:</h5>
+                </div>
+                <!-- <ul class="list-group list-group-flush lh-lg">
+                    <li class="list-group-item bg-transparent ">Some research
+                        supports the use of Tibetan singing bowls as a way
+                        to promote relaxation and reduce feelings of anxiety.</li>
+                    <li class="list-group-item bg-transparent ">Some research
+                        supports the use of Tibetan singing bowls as a way
+                        to promote relaxation and reduce feelings of anxiety.</li>
+                    <li class="list-group-item bg-transparent custom-fs-14">(13% VAR charge is included in the total
+                        price)
+                    </li>
+                </ul> -->
+                {{retreat.included|safe}}
+            </div>
+
+            <!-- EXCLUDED  -->
+            <div class="mb-4">
+
+                <div class="section__title small pb-0" data-aos="fade-in">
+                    <h5 class="mx-0 fs-6 custom-text-secondary">Excluded:</h5>
+                </div>
+                {{retreat.excluded|safe}}
+                <!-- <ul class="list-group list-group-flush lh-lg">
+                    <li class="list-group-item bg-transparent ">International flights</li>
+                    <li class="list-group-item bg-transparent custom-fs-14">(10% service charge per person on package
+                        price
+                        is excluded, payment for this should be made upon arrival)
+                    </li>
+                </ul> -->
+            </div>
+
+            <!-- KNOW BEFORE YOU GO  -->
+            <div class="mb-4">
+
+                <div class="section__title small pb-0" data-aos="fade-in">
+                    <h5 class="mx-0 fs-6 custom-text-secondary">Know before you go:</h5>
+                </div>
+                {{retreat.know_before_you_go|safe}}
+                <ul class="list-group list-group-flush lh-lg">
+                    <li class="list-group-item bg-transparent ">Travel assistance:</li>
+                    <li class="list-group-item bg-transparent custom-fs-14">For more information ask your questions
+                        directly
+                        to nepalyogaretreat@gmail.com
+                    </li>
+                </ul>
+            </div>
+
+            <!-- DAILY SCHEDULE  -->
+            <div class="mb-4">
+                <div class="section__title small " data-aos="fade-in">
+                    <h5 class="mx-0 fs-6 custom-text-secondary">Daily Schedule (example, subject to change)</h5>
+                </div>
+                <div class="wrap">
+                    <div class="section__title small " data-aos="fade-in">
+                        <h5 class="mx-0 fs-6 ">Day 1</h5>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-success">
+                                <th scope="col" style="max-width: 0;">Start</th>
+                                <th scope="col" style="max-width: 0;">Finish</th>
+                                <th scope="col">Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">14:00</th>
+                                <td scope="row"> 15:00</td>
+                                <td> Check in and welcome tea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wrap">
+                    <div class="section__title small " data-aos="fade-in">
+                        <h5 class="mx-0 fs-6 ">Day 1</h5>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-success">
+                                <th scope="col" style="max-width: 0;">Start</th>
+                                <th scope="col" style="max-width: 0;">Finish</th>
+                                <th scope="col">Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">14:00</th>
+                                <td scope="row"> 15:00</td>
+                                <td> Check in and welcome tea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wrap">
+                    <div class="section__title small " data-aos="fade-in">
+                        <h5 class="mx-0 fs-6 ">Day 1</h5>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-success">
+                                <th scope="col" style="max-width: 0;">Start</th>
+                                <th scope="col" style="max-width: 0;">Finish</th>
+                                <th scope="col">Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">14:00</th>
+                                <td scope="row"> 15:00</td>
+                                <td> Check in and welcome tea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wrap">
+                    <div class="section__title small " data-aos="fade-in">
+                        <h5 class="mx-0 fs-6 ">Day 1</h5>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-success">
+                                <th scope="col" style="max-width: 0;">Start</th>
+                                <th scope="col" style="max-width: 0;">Finish</th>
+                                <th scope="col">Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">14:00</th>
+                                <td scope="row"> 15:00</td>
+                                <td> Check in and welcome tea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wrap">
+                    <div class="section__title small " data-aos="fade-in">
+                        <h5 class="mx-0 fs-6 ">Prices and accommodation</h5>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-success">
+                                <th scope="col" style="max-width: 0;">Accommodation</th>
+                                <th scope="col" style="max-width: 0;">Single occupancy</th>
+                                <th scope="col">Double occupancy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Private Room</th>
+                                <td scope="row">$230.00</td>
+                                <td>$180.00 per person</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- MISC  -->
+            <p class="custom-fs-14 mb-2">
+                Note: All rates are subjected to 10% service charge.
+            </p>
+            <p class="custom-fs-14 mb-2">
+                The rate mentioned here are in USD for you to understand easily, we will charge same amount eqv. to
+                Nepali rupee applying the rate of the day when you arrive here.
+            </p>
+            <p class="custom-fs-14 mb-2">
+                Check in/Check out time: 12.00, we will not charge guests having an early morning or late flight and
+                arrive earlier or leave later. We can not guarantee a room then, but will provide a locked room for your
+                luggage.
+            </p>
+            <p class="custom-fs-14 mb-4">
+                Child policy: Our retreat packages are designed for adults seeking peace of mind, serenity, balance and
+                relaxation. Therefore our retreat is not recommended for children under 8 years, if you need more
+                information regarding our child policy, please contact us.
+            </p>
+            <p class="custom-fs-14 mb-2">
+                Please note:
+            </p>
+            <p class="custom-fs-14 mb-2">This Retreat Package is ready for booking anytime whether in winter or summer,
+                however some activities may be seasonal, please inquire when booking.
+            </p>
+            <p class="custom-fs-14">
+                Please inquire via email: nepalyogaretreat@gmail.com
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

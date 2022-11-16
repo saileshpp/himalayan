@@ -1,0 +1,18 @@
+@import "partials/var";
+@import "mixins/media";
+
+@import "partials/root";
+@import "partials/header";
+@import "partials/banner";
+@import "partials/hamburger";
+@import "partials/footer";
+@import "partials/breadcrumb";
+@import "partials/cards";
+@import "partials/buttons";
+@import "partials/custom";
+
+@import "partials/main/home-section";
+@import "partials/main/blog-section";
+@import "partials/main/gallery-section";
+@import "partials/main/contact-section";
+@import "partials/main/courses-section";

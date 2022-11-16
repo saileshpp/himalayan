@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="custom__bg__yellow overflow-hidden">
+    <div class="container">
+        <div class="section__title " data-aos="fade-in">
+            <h5 class="mx-0">About Himalayan Nada Nirvana Yoga</h5>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'img/about-yoga.png'%}" alt="" class="img-fluid mb-4" data-aos="fade-right">
+                <div class="d-flex align-items-center gap-3 flex-wrap flex-md-nowrap" data-aos="fade-right">
+                    <p>We at Himalayan Nada Nirvana Yoga provide various services to the nature of the clients. Wish
+                        how you would like to
+                        spend the time here we can talk & come to a conclusion.</p>
+
+                    <a href="#" class="btn btn__1" style="flex: none;">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="our__status">
+                    <h3 data-aos="fade-in">Our Status in Numbers</h3>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>{{ourStatusTotalUsers.status}}+</span>/ Total Users
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>{{ourStatusYearsofExperience.status}}+</span>/ Years of Experience
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <!-- <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>1430+</span>/ Branches
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-umbrella"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>1430+</span>/ In-house Staffs
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg ">
+    <div class="container">
+        <div class="d-flex justify-content-center" data-aos="fade-in">
+            <img src="{% static 'img/yoga-alliance-school-removebg-preview.png'%}" alt="" class="img-fluid yoga">
+
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg overflow-hidden">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>Our Special Team</h5>
+        </div>
+        <div class="row justify-content-center">
+            {% for ourteam in ourteams %}
+            <div class="col-lg-3 mb-4 mb-lg-0" data-aos="fade-up">
+                <div class="card__3">
+                    <div class="top">
+                        <div class="author">
+                            <h3>{{ourteam.name}}</h3>
+                            <p class="position">
+                                {{ourteam.position}}
+                            </p>
+                        </div>
+                        <div class="auth__img">
+                            <img src="{{ourteam.image.url}}" alt="{{ourteam.image}}" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="body">
+                        <p>
+                            {{ourteam.info}}
+                        </p>
+                        <div class="socials">
+                            {% if ourteam.facebook_link %}
+                            <a href="{{ourteam.facebook_link}}" target="_blank"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            {% endif %}
+                            {% if ourteam.instagram_link %}
+                            <a href="{{ourteam.instagram_link}}" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            {% endif %}
+                            {% if ourteam.twitter_link %}
+                            <a href="{{ourteam.twitter_link}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg__yellow" data-aos="fade-in">
+    <div class="container">
+        <div class="testimonial__slide splide" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for testimonial in testimonials %}
+                    <li class="splide__slide">
+                        <div class="card__4">
+                            <p class="desc">
+                                {{testimonial.spoken_words}}
+                            </p>
+                            <div class="auth__img">
+                                <img src="{{testimonial.image.url}}" alt="{{testimonial.image}}" class="img-fluid">
+                            </div>
+                            <h3>{{testimonial.name}}<span>/ {{testimonials.position}}</span> </h3>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

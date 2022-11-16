@@ -1,0 +1,198 @@
+header {
+    * {
+        font-family: overlock;
+    }
+    background-color: var(--custom-primary);
+    background-image: url(../img/pattern-chakras-white.png);
+    z-index: 1040;
+    padding: 15px 0;
+    transition: var(--custom-transition);
+    border-bottom: 5px solid var(--custom-yellow);
+    width: 100%;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+            img {
+                width: 100%;
+                max-width: 120px;
+
+                transition: var(--custom-transition);
+            }
+        }
+        .navbar__nav {
+            margin-inline: auto;
+            .navbar {
+                list-style: none;
+                padding: 0;
+                .logo {
+                    margin: 0 15px;
+                }
+                .nav-item {
+                    .nav-link {
+                        color: #fff;
+                        font-size: 18px;
+                        font-weight: 700;
+                        padding: 20px 18px;
+                        display: block;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            height: 0;
+                            position: absolute;
+                            width: 0;
+                            border-style: solid;
+                            border-width: 4px 0 0;
+                            right: 100%;
+                            top: 0;
+                            transition: all 0.2s ease 0s;
+                            border-color: #ffda6b;
+                        }
+                        &::after {
+                            content: "";
+                            height: 0;
+                            position: absolute;
+                            width: 0;
+                            border-style: dashed;
+                            border-width: 0 0 1px;
+                            left: 100%;
+                            bottom: 1px;
+                            transition: all 0.2s ease 0s;
+                            border-color: #ffda6b;
+                        }
+
+                        &:hover {
+                            &::before,
+                            &::after {
+                                width: 100%;
+                                transition-duration: 0.4s;
+                                transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+                                right: 0;
+                            }
+                            &::after {
+                                left: 0;
+                            }
+                        }
+                    }
+                    position: relative;
+                    .dropdown {
+                        list-style: none;
+                        background-color: #fff;
+                        background-image: url(../img/pattern-grudge.png);
+                        position: absolute;
+                        top: calc(100% + 44px);
+                        z-index: 1;
+                        width: max-content;
+                        padding: 20px;
+                        // isolation: isolate;
+                        transition: var(--custom-transition);
+                        opacity: 0;
+                        visibility: hidden;
+                        li {
+                            a {
+                                color: #484338;
+                                text-decoration: none;
+                                line-height: 24px;
+                                padding: 10px;
+                                font-size: 14px;
+                                line-height: 24px;
+                                display: block;
+                                font-family: Rosario;
+                                &::before {
+                                    content: "\f105";
+                                    font-family: "Font Awesome 6 Free";
+                                    font-weight: 900;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            inset: 10px;
+                            border: 1px solid #a58251;
+                            z-index: 1;
+                            pointer-events: none;
+                        }
+                    }
+                    &:hover {
+                        .dropdown {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+        .hamburger {
+            color: #fff;
+            font-size: 20px;
+            display: none;
+        }
+    }
+    &.is__active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 8px;
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .logo {
+                img {
+                    width: 100%;
+                    max-width: 80px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+            .navbar__nav {
+                .navbar {
+                    .nav-item {
+                        position: relative;
+                        .dropdown {
+                            top: calc(100% + 18px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.mm-spn.mm-spn--light {
+    background: #7e8446;
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 10%);
+    color: #fff;
+}
+@include responsive-max(992px) {
+    header {
+        .container {
+            .logo {
+                img {
+                    max-width: 80px;
+                }
+            }
+          
+            .hamburger {
+                display: block;
+            }
+        }
+        &.is__active {
+            .container {
+                .logo {
+                    img {
+                        max-width: 60px;
+                    }
+                }
+            }
+        }
+    }
+    .navbar__nav {
+        .navbar {
+            .logo {
+                display: none !important;
+            }
+        }
+    }
+}

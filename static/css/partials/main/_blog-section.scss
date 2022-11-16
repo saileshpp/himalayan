@@ -1,0 +1,161 @@
+.pagination {
+    justify-content: center;
+    .disabled {
+        .page-link {
+            background-image: url(../img/pattern-grudge.png);
+            background-color: #fff;
+        }
+    }
+    .active {
+        .page-link {
+            background-color: var(--custom-primary);
+            border-color: var(--custom-primary);
+        }
+    }
+    .page-link {
+        color: #444;
+        background-image: url(../img/pattern-grudge.png);
+        border-color: rgba(165, 130, 81, 0.25);
+        box-shadow: none !important;
+    }
+}
+.blog__section {
+    background-color: #f5f0e3;
+    h1.title {
+        font-family: Ptserif;
+        font-weight: bold;
+        font-size: 40px;
+        padding: 15px 0 50px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid rgba(165, 130, 81, 0.3);
+        text-align: center;
+        .author {
+            font-size: 12px;
+            font-family: rosario;
+            font-weight: 400;
+            margin-top: 15px;
+        }
+    }
+    .thumbnail {
+        img {
+            width: 100%;
+        }
+    }
+    .paragraph {
+        margin-top: 50px;
+        line-height: 30px;
+    }
+
+    .comment__section {
+        padding: 50px 0;
+    }
+}
+.comment__wrap {
+    display: flex;
+    gap: 10px;
+    background-color: #fff;
+    background-image: url(../img/pattern-grudge.png);
+
+    .left {
+        background-color: #e5dbc1;
+        min-width: 110px;
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 100%;
+            max-width: 80px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+    }
+    .right {
+        padding: 10px 20px;
+        color: #484338;
+        .author {
+            font-weight: bold;
+            margin-bottom: 5px;
+            .date {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+@include responsive-max(575px) {
+    .blog__section {
+        h1.title {
+            font-family: Ptserif;
+            font-weight: bold;
+            font-size: 30px;
+            padding: 15px 0 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(165, 130, 81, 0.3);
+            text-align: center;
+            .author {
+                font-size: 12px;
+                font-family: rosario;
+                font-weight: 400;
+                margin-top: 15px;
+            }
+        }
+        .paragraph {
+            margin-top: 30px;
+        }
+        .comment__section {
+            padding: 40px 0;
+        }
+    }
+    .comment__wrap {
+        display: flex;
+        gap: 10px;
+        background-color: #fff;
+        background-image: url(../img/pattern-grudge.png);
+        flex-direction: column;
+
+        .left {
+            background-color: #e5dbc1;
+            min-width: 110px;
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 100%;
+                max-width: 80px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+        }
+        .right {
+            padding: 10px 20px;
+            color: #484338;
+            .author {
+                font-weight: bold;
+                margin-bottom: 5px;
+                .date {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+.form__wrap {
+    .form-control {
+        color: #333333;
+        padding: 16px 12px 15px;
+        background-color: transparent;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: 1px solid rgba(165, 130, 81, 0.3);
+        &::placeholder {
+            color: #333333;
+        }
+    }
+    textarea.form-control {
+        width: 100%;
+        min-height: 200px;
+    }
+}

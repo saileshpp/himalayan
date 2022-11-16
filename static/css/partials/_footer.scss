@@ -1,0 +1,135 @@
+footer {
+    background-color: #d4ad76;
+    .footer__top {
+        background: rgba(212, 173, 118, 1)
+            url(https://kriyawp.wpengine.com/wp-content/uploads/2016/07/pattern-grudge.png) top left repeat;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+        color: #484338;
+
+        .logo {
+            img {
+                max-width: 150px;
+                opacity: 0.8;
+                margin-bottom: 20px;
+                margin-inline: auto;
+                display: block;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            left: 50%;
+            bottom: 100%;
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+            transform: translate(-50%, -100%);
+            img {
+                animation: spin 200s linear infinite;
+            }
+        }
+
+        .wrap {
+            h3 {
+                font-size: 18px;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+                position: relative;
+                &::before {
+                    border-color: #a58251;
+                    border-style: dashed none solid;
+                    border-width: 1px 0;
+                    content: "";
+                    height: 2px;
+                    position: absolute;
+                    bottom: -15px;
+                    left: 0;
+                    width: 64px;
+                }
+            }
+            ul {
+                list-style: none;
+                li {
+                    margin-bottom: 10px;
+                    a {
+                        color: #484338;
+                        text-decoration: none;
+                        transition: var(--custom-transition);
+                        &:hover {
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+
+        .socials {
+            a {
+                color: #484338;
+                transition: var(--custom-transition);
+                font-size: 18px;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .footer__bot {
+        color: #a58251;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 30px 0;
+        text-align: center;
+        .footer__deco {
+            display: flex;
+            justify-content: center;
+            max-width: 350px;
+            margin-inline: auto;
+            align-items: center;
+            gap: 10px;
+            .lines {
+                height: 3px;
+                background-color: #a58251;
+                display: block;
+                position: relative;
+                width: 100%;
+                margin-top: 8px;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    bottom: 6px;
+                    border-top-style: dashed;
+                    left: 0;
+                    border-top-width: 1px;
+                }
+            }
+        }
+        p {
+            margin-top: 20px;
+        }
+    }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@include responsive-max(575px) {
+    footer {
+        .footer__top {
+            padding: 40px 30px;
+        }
+    }
+}

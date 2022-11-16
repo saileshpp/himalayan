@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="blog__section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 ">
+                <h1 class="title">{{blog.title}}
+                    <div class="author">BY {{blog.author}} / {{blog.date_added}}</div>
+                </h1>
+                <div class="thumbnail">
+                    <img src="{{blog.img.url}}" alt="" class="img-fluid">
+                </div>
+                <div class="paragraph">
+                    {{blog.body|safe}}
+                </div>
+                <div class="comment__section">
+                    <div class="section__title " data-aos="fade-in">
+                        <h5 class="mx-0">Comments</h5>
+                    </div>
+                    {% if comments %}
+                    {% for comment in comments %}
+                    <div class="comment__wrap mb-4">
+                        <div class="left">
+                            <img src="{% static 'img/e99b9d141f5b394ea928f3764d5a1b76.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="right">
+                            <div class="author">
+                                {{comment.author}}
+                                <span class="date">/ {{comment.date_added}}</span>
+                            </div>
+                            <div class="comment">
+                                {{comment.comment}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="pt-1">
+                        <h2 class="text-center custom-fw-500 mb-5">No comments to show <i
+                                class="fa-solid fa-comment"></i></h2>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="reply">
+                    <div class="section__title " data-aos="fade-in">
+                        <h5 class="mx-0">Give a Comment</h5>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="form__wrap">
+                                    <input type="text" placeholder="Name" name="author" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="form__wrap">
+                                    <input type="email" placeholder="Email" name="email" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form__wrap">
+                                    <textarea required class="form-control" placeholder="Message"
+                                        name="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn__1">
+                                    COMMENT
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 mt-5">
+                <div class="section__title aos-init aos-animate" data-aos="fade-in" bis_skin_checked="1">
+                    <h5>Recent Blogs</h5>
+                </div>
+                {% for blog in recentblogs %}
+                <div class="mb-4">
+                    <a href="{% url 'blog' id=blog.id %}" class="card__2 ">
+                        <div class="img__wrap" bis_skin_checked="1">
+                            <img src="{{blog.img.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="card__body" bis_skin_checked="1">
+                            <div class="date">
+                                <span> {{blog.date_added|date:"d"}}</span>
+                                {{blog.date_added|date:"M"}}
+                            </div>
+                            <div class="card__info" bis_skin_checked="1">
+                                <div class="author" bis_skin_checked="1">By {{blog.author}}</div>
+                                <h2 class="title">
+                                    {{blog.title}}
+                                </h2>
+                                <div class="continue__reading" bis_skin_checked="1">
+                                    Continue Reading...
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

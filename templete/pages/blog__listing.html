@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="custom__bg__yellow">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>Blogs</h5>
+        </div>
+
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-lg-4 col-sm-6 mb-5" data-aos="fade-in">
+                <a href="{% url 'blog' id=blog.id %}" class="card__2">
+                    <div class="img__wrap">
+                        <img src="{{blog.img.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="card__body">
+                        <div class="date">
+                            <span> {{blog.date_added|date:"d"}}</span>
+                            {{blog.date_added|date:"M"}}
+                        </div>
+                        <div class="card__info">
+                            <div class="author">By {{blog.author}}</div>
+                            <h2 class="title">
+                                {{blog.title}}
+                            </h2>
+                            <div class="desc">
+                                {{blog.body}}
+                            </div>
+                            <div class="continue__reading">
+                                Continue Reading...
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            <div class="col-12 mt-0 mt-lg-5">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        {% if blogs.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{blogs.previous_page_number}}">Previous</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                        {% endif %}
+
+                        {% for page in blogs.paginator.page_range %}
+                        <li class="page-item  {% if blogs.number == page %} active {% endif %}"><a class="page-link"
+                                href="?page={{page}}">{{page}}</a></li>
+                        {% endfor %}
+
+                        <!-- pagination next  -->
+                        {% if blogs.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{blogs.next_page_number}}">Next</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

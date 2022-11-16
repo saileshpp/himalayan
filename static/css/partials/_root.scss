@@ -1,0 +1,102 @@
+fieldset,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+ul,
+ul li {
+    margin: 0;
+    padding: 0;
+}
+a,
+.hamburger,
+button {
+    cursor: pointer;
+}
+*,
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+*,
+button:focus {
+    outline: 0;
+}
+body {
+    font-family: rosario;
+}
+.custom__bg {
+    background-color: #f5f0e3;
+    background-image: url(../img/pattern-chakras-alt-color.jpg);
+}
+.custom__bg__yellow {
+    background-color: #f2e9d2;
+}
+section {
+    & > .container {
+        padding: 80px 40px;
+    }
+}
+.section__title {
+    padding-bottom: 70px;
+    position: relative;
+    display: flex;
+    h5 {
+        position: relative;
+        margin: 0;
+        margin-inline: auto;
+        font-weight: bold;
+        font-family: Ptserif;
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: 0.15em;
+        text-align: center;
+        &::before {
+            height: 1px;
+            background-color: #a58251;
+            display: block;
+            position: absolute;
+            top: calc(100% + 20px);
+            width: 100%;
+            left: 0;
+            content: "";
+        }
+        &::after {
+            height: 1px;
+            // background-color: #a58251;
+            display: block;
+            position: absolute;
+            top: calc(100% + 16px);
+            width: 100%;
+            left: 0;
+            content: "";
+            border-top-style: dashed;
+            border-top-width: 1px;
+            border-top-color: #a58251;
+        }
+    }
+}
+@include responsive-max(575px) {
+    .custom__bg {
+        background-color: #f5f0e3;
+        background-image: url(../img/pattern-chakras-alt-color.jpg);
+        & > .container {
+            padding-block: 60px;
+        }
+    }
+    .section__title {
+        padding-bottom: 70px;
+        position: relative;
+        display: flex;
+        h5 {
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0.15em;
+        }
+    }
+}

@@ -1,0 +1,189 @@
+@use "sass:string";
+@import url('https://fonts.googleapis.com/css2?family=Overlock&family=PT+Serif:wght@400;700&family=Rosario:wght@300;400;500;600;700&display=swap');
+
+$colors: (
+    "primary": #7e8446,
+    "secondary": #400b73,
+    "yellow": #ffda6b,
+);
+
+:root {
+    --custom-transition: all 300ms ease-in-out;
+    --box-shadow: ;
+
+    // this loop is for custom variable
+    @each $color-index, $color-value in $colors {
+        --custom-#{$color-index}: #{$color-value};
+    }
+}
+
+.custom-transition {
+    transition: var(--custom-transition) !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.line-1 {
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.line-2 {
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.line-3 {
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* responsive lg */
+@media (max-width: 991px) {
+    :root {
+        font-size: 15px;
+    }
+}
+
+/* responsive md */
+@media (max-width: 768px) {
+    :root {
+        font-size: 14.5px;
+    }
+}
+/* responsive sm */
+@media (max-width: 575px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+// LOOP
+
+// Font LOOP
+$fonts: (
+    "overlock": Overlock,
+    "rosario": Rosario,
+    "ptserif": Ptserif,
+);
+
+@each $font-index, $font-value in $fonts {
+    .custom-font-#{$font-index} {
+        font-family: $font-value !important;
+    }
+}
+
+// COLOR LOOP
+@each $color-index, $color-value in $colors {
+    .custom-text-#{$color-index} {
+        color: $color-value !important;
+    }
+    .custom-bg-#{$color-index} {
+        background-color: $color-value !important;
+    }
+}
+// FONT SIZE LOOP
+$base-size: 1rem;
+
+$sizes: (
+    "size-6": $base-size * 0.375,
+    "size-7": $base-size * 0.4375,
+    "size-8": $base-size * 0.5,
+    "size-9": $base-size * 0.5625,
+    "size-10": $base-size * 0.625,
+    "size-11": $base-size * 0.6875,
+    "size-12": $base-size * 0.6875,
+    "size-13": $base-size * 0.8125,
+    "size-14": $base-size * 0.875,
+    "size-15": $base-size * 0.9375,
+    "size-16": $base-size * 1,
+    "size-17": $base-size * 1.0625,
+    "size-18": $base-size * 1.125,
+    "size-19": $base-size * 1.1875,
+    "size-20": $base-size * 1.25,
+    "size-21": $base-size * 1.3125,
+    "size-22": $base-size * 1.375,
+    "size-23": $base-size * 1.4375,
+    "size-24": $base-size * 1.5,
+    "size-25": $base-size * 1.5625,
+    "size-26": $base-size * 1.625,
+    "size-27": $base-size * 1.6875,
+    "size-28": $base-size * 1.75,
+    "size-29": $base-size * 1.8125,
+    "size-30": $base-size * 1.875,
+    "size-31": $base-size * 1.9375,
+    "size-32": $base-size * 2,
+    "size-33": $base-size * 2.0625,
+    "size-34": $base-size * 2.125,
+    "size-35": $base-size * 2.1875,
+    "size-36": $base-size * 2.25,
+    "size-37": $base-size * 2.3125,
+    "size-38": $base-size * 2.375,
+    "size-39": $base-size * 2.4375,
+    "size-40": $base-size * 2.5,
+    "size-41": $base-size * 2.5625,
+    "size-42": $base-size * 2.625,
+    "size-43": $base-size * 2.6875,
+    "size-44": $base-size * 2.75,
+    "size-45": $base-size * 2.8125,
+    "size-46": $base-size * 2.875,
+    "size-47": $base-size * 2.9375,
+    "size-48": $base-size * 3,
+    "size-49": $base-size * 3.0625,
+    "size-50": $base-size * 3.125,
+    "size-51": $base-size * 3.1875,
+    "size-52": $base-size * 3.25,
+    "size-53": $base-size * 3.3125,
+    "size-54": $base-size * 3.375,
+    "size-55": $base-size * 3.4375,
+    "size-56": $base-size * 3.5,
+    "size-57": $base-size * 3.5625,
+    "size-58": $base-size * 3.625,
+    "size-59": $base-size * 3.6875,
+    "size-60": $base-size * 3.75,
+    "size-61": $base-size * 3.8125,
+    "size-62": $base-size * 3.875,
+    "size-63": $base-size * 3.9375,
+    "size-64": $base-size * 4,
+);
+
+@each $size-index, $size-value in $sizes {
+    $index: string.slice($size-index, 6);
+
+    .custom-fs-#{$index} {
+        font-size: $size-value;
+    }
+}
+
+// FONT WEIGHT LOOP
+$weights: (
+    "size-100": 100,
+    "size-200": 200,
+    "size-300": 300,
+    "size-400": 400,
+    "size-500": 500,
+    "size-600": 600,
+    "size-700": 700,
+    "size-800": 800,
+    "size-900": 900,
+);
+
+@each $weight-index, $weight-value in $weights {
+    $index: string.slice($weight-index, 6);
+
+    .custom-fw-#{$index} {
+        font-weight: $weight-value;
+    }
+}

@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="custom__bg__yellow product__section">
+    <div class="container">
+        <div class="product__info row">
+            <div class="col-md-4 mb-5 mb-lg-0">
+                <div class="slider__wrap">
+                    <div class="product__slider splide">
+                        <div class="splide__track">
+                            <ul class="splide__list jquery__zoom">
+                                <li class="splide__slide">
+                                    <img src="{{product.img.url}}" alt="" class="img-fluid">
+                                </li>
+                                <li class="splide__slide">Slide 02</li>
+                                <li class="splide__slide">Slide 03</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product__slider__thumb splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <img src="{{product.img.url}}" alt="" class="img-fluid">
+                                </li>
+                                <li class="splide__slide">Slide 02</li>
+                                <li class="splide__slide">Slide 03</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="product__details">
+                    <h1>{{product.title}}</h1>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                        <a href="#comment" class="text-decoration-none"><span>({{total_reviews}} customer
+                                review)</span></a>
+                    </div>
+                    <div class="price">
+                        Rs {{product.price}}
+                    </div>
+                    <div class="product__highlight">
+                        {{product.highlight}}
+                    </div>
+                    <div class="btn btn__1" data-bs-toggle="modal" data-bs-target="#buynowmodal">Buy Now</div>
+                </div>
+            </div>
+        </div>
+        <div class="product__bot mb-5">
+            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Description</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane"
+                        aria-selected="false">Reviews({{total_reviews}})</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+                    <div class="section__title small" data-aos="fade-in">
+                        <h5 class="mx-0 custom-fs-20">Description</h5>
+                    </div>
+                    <p>
+                        {{product.body|safe}}
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+                    <div class="section__title small" data-aos="fade-in">
+                        {% if reviews %}
+                        <h5 class="mx-0 custom-fs-20">{{total_reviews}} reviews for {{product.title}}.</h5>
+                        {% else %}
+                        <h5 class="mx-0 custom-fs-20 text-start">Reviews
+                            <p class="custom-fs-14 mt-3 custom-fw-400">There are no reviews yet.</p>
+                        </h5>
+                        {% endif %}
+                    </div>
+
+                    {% if reviews %}
+                    {% for review in reviews %}
+                    <div class="comment__wrap mb-4">
+                        <div class="left">
+                            <img src="{% static 'img/e99b9d141f5b394ea928f3764d5a1b76.png' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="right">
+                            <div class="author">
+                                {{review.name}}
+                                <span class="date">/ {{review.date_added}}</span>
+                            </div>
+                            {% if review.rating == 5 %}
+                            <div class="d-flex custom-text-yellow">
+                                <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                                    class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i><i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            {% elif review.rating == 4 %}
+                            <div class="d-flex custom-text-yellow">
+                                <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                                    class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+                            </div>
+                            {% elif review.rating == 3 %}
+                            <div class="d-flex custom-text-yellow">
+                                <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                                    class="fa-solid fa-star"></i>
+                            </div>
+                            {% elif review.rating == 2 %}
+                            <div class="d-flex custom-text-yellow">
+                                <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+                            </div>
+                            {% elif review.rating == 1 %}
+                            <div class="d-flex custom-text-yellow">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            {% endif %}
+
+                            <div class="comment">
+                                {{review.review}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <div class="section__title small" data-aos="fade-in">
+                        {% if reviews %}
+                        <h5 class="mx-0 custom-fs-20">Add a review</h5>
+                        {% else %}
+                        <h5 class="mx-0 custom-fs-20">Be the first to review “{{product.title}}”</h5>
+                        {% endif %}
+                    </div>
+                    <form method="POST" action="{% url 'product' id=product.id %}" enctype="multipart/form-data"
+                        id="comment">
+                        {% csrf_token %}
+                        <div class="form__wrap mb-3">
+                            <input type="text" placeholder="Name" required="" class="form-control" name="name">
+                        </div>
+                        <div class="form__wrap mb-3">
+                            <input type="text" placeholder="Email" required="" class="form-control" name="email">
+                        </div>
+
+                        <div class="form__wrap mb-3">
+                            <div class="star__rating">
+                                <input type="radio" name="rating" id="5" value="5"> <label for="5"><i
+                                        class="fa-solid fa-star"></i></label>
+                                <input type="radio" name="rating" id="4" value="4"> <label for="4"><i
+                                        class="fa-solid fa-star"></i></label>
+                                <input type="radio" name="rating" id="3" value="3"> <label for="3"><i
+                                        class="fa-solid fa-star"></i></label>
+                                <input type="radio" name="rating" id="2" value="2"> <label for="2"><i
+                                        class="fa-solid fa-star"></i></label>
+                                <input type="radio" name="rating" id="1" value="1"> <label for="1"><i
+                                        class="fa-solid fa-star"></i></label>
+                            </div>
+                        </div>
+
+                        <div class="form__wrap mb-3">
+                            <textarea required class="form-control" placeholder="Your Review" name="message"></textarea>
+                        </div>
+                        <input type="submit" value="Add Comment" class="btn btn__1" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="related__products">
+            <div class="section__title small" data-aos="fade-in">
+                <h5 class="mx-0">More products</h5>
+            </div>
+            <div class="row">
+                {% for product in more_products %}
+                <div class="col-lg-3 col-sm-4 col-6 mb-5 mb-lg-0" data-aos="fade-in">
+                    <a href="{% url 'product' id=product.id %}" class="product__card">
+                        <div class="img__wrap">
+                            <img src="{{product.img.url}}" alt="{{product.img}}" class="img-fluid">
+                        </div>
+                        <div class="card__body">
+                            <h2 class="product__name">
+                                {{product.title}}
+                            </h2>
+                            {% if product.discounted_price %}
+                            <div class="price">
+                                Rs {{product.discounted_price}} <span
+                                    class="text-decoration-line-through ms-1 custom-fs-13"
+                                    style="    color: #484338; opacity: 0.5;">Rs
+                                    {{product.price}}</span>
+                            </div>
+                            {% else %}
+                            <div class="price">
+                                Rs {{product.price}}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% include 'components/modal.html' %}
+
+{% endblock %}

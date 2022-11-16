@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="course__section">
+    <div class="container">
+        <h1 class="title">{{course.title}}
+        </h1>
+
+        <!-- Course Details  -->
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="course__slide splide mb-3">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="img/yoga-hall-in-rishikesh.jpg" alt="" class="img-fluid">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="img/yogic-food.jpg" alt="" class="img-fluid">
+                            </li>
+                            <li>
+                                <img src="img/200-hours-yoga-teacher-training.jpg" alt="" class="img-fluid">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="course__slide__thumb splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="img/yoga-hall-in-rishikesh.jpg" alt="" class="img-fluid">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="img/yogic-food.jpg" alt="" class="img-fluid">
+                            </li>
+                            <li>
+                                <img src="img/200-hours-yoga-teacher-training.jpg" alt="" class="img-fluid">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="course__desc">
+                    {{course.body|safe}}
+                </div>
+                <!-- <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IPhPI12SCoI"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div> -->
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0 position-sticky top">
+                <div class="course__sidebar">
+                    <h2>Course Detail</h2>
+                    <ul>
+                        <li><span>Duration:</span> <span>{{course.duration}} Days</span></li>
+                        <li><span>Language:</span> <span>{{course.language}}</span></li>
+                        <li><span>Level:</span> <span>{{course.level}}</span></li>
+                        <li><span>Certification:</span> <span>Yoga Alliance</span></li>
+                        <li><span>Style:</span> <span>{{course.style}}</span></li>
+                        <li><span>Date:</span> <span>{{course.date_added}}</span></li>
+                    </ul>
+                    <h2>100HRS YTTC PRICE</h2>
+                    {% if course.discounted_price %}
+                    <div class="price">
+                        Rs {{course.discounted_price}} <span>Rs {{course.price}}</span>
+                    </div>
+                    {% else %}
+                    <div class="price">
+                        Rs {{course.price}}
+                    </div>
+                    {% endif %}
+
+
+                    <a href="mailto:himalayannadanirvanayoga@gmail.com" class="btn btn__1 mx-auto">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

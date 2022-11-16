@@ -1,0 +1,198 @@
+.blog__section {
+    .paragraph {
+        p {
+            margin-bottom: 15px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        iframe {
+            width: 100% !important;
+            aspect-ratio: 16/9;
+            height: auto !important;
+        }
+        ul,
+        ol,
+        dl {
+            list-style-position: inside;
+            margin-bottom: 30px;
+        }
+    }
+    .col-lg-3 {
+        border-left: 1px dashed rgba(165, 130, 81, 0.3);
+        .card__2 {
+            display: flex;
+
+            .img__wrap {
+                flex: 50%;
+                img {
+                    height: 100%;
+                }
+            }
+            .card__body {
+                padding: 10px 15px 10px;
+                align-items: center;
+                .date {
+                    display: none;
+                    padding: 0px 0 9px;
+                    font-size: 14px;
+
+                    span {
+                        font-size: 20px;
+                    }
+                }
+                .card__info {
+                    .author {
+                        margin-bottom: 4px;
+                    }
+                    .title {
+                        font-size: 16px;
+                    }
+                    .continue__reading {
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+.card__2 {
+    .card__body {
+        .card__info {
+            .desc {
+                overflow: hidden;
+                white-space: normal;
+                text-overflow: ellipsis;
+                display: -webkit-box !important;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+// Product Section
+.product__section {
+    .product__info {
+        margin-bottom: 80px;
+        .slider__wrap {
+            flex: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .product__details {
+            color: #484848;
+            h1 {
+                font-family: "Ptserif";
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+            .rating {
+                margin-bottom: 15px;
+                i {
+                    color: #e6b800;
+                }
+                span {
+                    color: #7e8446;
+                }
+            }
+            .price {
+                font-family: "rosario";
+                margin-bottom: 15px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .product__highlight {
+                line-height: 1.8;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .product__bot {
+        .nav {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(165, 130, 81, 0.25);
+            .nav-link {
+                background-color: transparent;
+                border: none;
+                font-family: "Ptserif";
+                font-size: 24px;
+                font-weight: 900;
+                color: #484848;
+                &.active {
+                    color: #7e8446;
+                    border-bottom: 1px solid #484848;
+                }
+            }
+        }
+    }
+}
+.section__title.small {
+    padding-bottom: 20px;
+    h5 {
+        font-size: 20px;
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.modal {
+    .modal-content {
+        background-color: #e5dbc1;
+        border-radius: 0;
+        .modal-header {
+            border-bottom: none;
+        }
+    }
+}
+
+.star__rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    label {
+        transition: all 0.15s ease-in-out;
+        color: #a58251c7;
+    }
+    input {
+        display: none;
+    }
+    label:hover,
+    input:checked ~ label,
+    label:hover ~ label {
+        color: #e6b800;
+        cursor: pointer;
+    }
+    input:checked + label:hover,
+    input:checked ~ label:hover,
+    input:checked ~ label:hover ~ label,
+    label:hover ~ input:checked ~ label {
+        color: #ffcc00;
+    }
+}
+.custom-article {
+    border-color: rgb(212, 173, 118) !important;
+    ul {
+        list-style: none;
+        li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            padding: 0.5rem 1rem;
+            &:last-child{
+                border:none
+            }
+        }
+    }
+}
+@include responsive-max(768px) {
+    .product__section {
+        .product__info {
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+    }
+}

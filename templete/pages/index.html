@@ -1,0 +1,339 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="banner__slider splide">
+    <div class="splide__track">
+        <ul class="splide__list">
+            {% for slide in sliders %}
+            <li class="splide__slide">
+                <img src="{{ slide.image.url }}" alt="">
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+<section class="custom__bg ">
+    <div class="container pt-5 pb-0">
+        <div class="d-flex justify-content-center" data-aos="fade-in">
+            <img src="{% static 'img/yoga-alliance-school-removebg-preview.png'%}" alt="" class="img-fluid yoga">
+
+        </div>
+    </div>
+</section>
+<section class="custom__bg">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>A BRIEF DESCRIPTION ABOUT THE WAYS OF YOGA</h5>
+        </div>
+
+        <div class="row justify-content-center">
+            {% for about in abouts %}
+            <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0">
+                <div class="card__1" data-aos="fade-up">
+                    <h6>{{ about.title }}</h6>
+                    <div class="img__wrap">
+                        <img src="{{about.img.url}}" alt="" class="img-fluid">
+                    </div>
+                    <p>
+                        {{about.message}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section class="custom__bg__yellow">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>Recent Blogs</h5>
+        </div>
+
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0" data-aos="fade-in">
+                <a href="{% url 'blog' id=blog.id %}" class="card__2">
+                    <div class="img__wrap">
+                        <img src="{{blog.img.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="card__body">
+                        <div class="date">
+                            <span> {{blog.date_added|date:"d"}}</span>
+                            {{blog.date_added|date:"M"}}
+                        </div>
+                        <div class="card__info">
+                            <div class="author">BY {{blog.author}}</div>
+                            <h2 class="title">
+                                {{blog.title}}
+                            </h2>
+                            <div class="desc">
+                                Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.
+                                Sed non neque elit....
+                            </div>
+                            <div class="continue__reading">
+                                Continue Reading...
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section class="custom__bg overflow-hidden">
+    <div class="container pb-0">
+        <div class="section__title" data-aos="fade-in">
+            <h5>Gallery</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 p-0" data-aos="fade-in">
+            <div class="d-flex custom__bg__yellow p-3 py-5 flex-column justify-content-center h-100">
+                <div class="section__title pb-5">
+                    <h5>Memories</h5>
+                </div>
+                <p class="mb-4 text-center">
+                    We at Himalayan Nada Nirvana Yoga provide various services to the nature of the clients. Wish
+                    how you would like to
+                    spend the time here we can talk and come to a conclusion.
+                </p>
+                <a href="{% url 'gallery' %}" class="btn btn__1 mx-auto">
+                    View Gallery
+                </a>
+            </div>
+        </div>
+        {% for gallery in galleries %}
+        <div class="col-lg p-0" data-aos="fade-in">
+            <a href="{% url 'gallery' %}" class="gallery__img">
+                <img src="{{gallery.img.url}}" alt="" class="img-fluid">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="custom__bg">
+    <div class="container ">
+        <div class="section__title " data-aos="fade-in">
+            <h5>Featured Courses</h5>
+        </div>
+        <div class="row justify-content-center">
+            {% for course in courses %}
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <a href="{% url 'viewcourse' id=course.id %}" class="card__5">
+                    <div class="img__wrap">
+                        <img src="{{course.img.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="card__body">
+                        <div class="price">
+                            Rs {{course.price}}
+                        </div>
+                        <div class="card__info">
+                            <h2 class="title">
+                                {{course.title}}
+                            </h2>
+                            <div class="desc">
+                                <span>30 Days</span> | <span>{{course.level}}</span>
+                            </div>
+                            <div class="hours">
+                                1:00 hr/day
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg__yellow overflow-hidden">
+    <div class="container">
+        <div class="section__title " data-aos="fade-in">
+            <h5 class="mx-0">About Himalayan Nada Nirvana Yoga</h5>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'img/about-yoga.png'%}" alt="" class="img-fluid mb-4" data-aos="fade-right">
+                <div class="d-flex align-items-center gap-3 flex-wrap flex-md-nowrap" data-aos="fade-right">
+                    <p>We at Himalayan Nada Nirvana Yoga provide various services to the nature of the clients. Wish
+                        how you would like to
+                        spend the time here we can talk & come to a conclusion.</p>
+
+                    <a href="#" class="btn btn__1" style="flex: none;">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="our__status">
+                    <h3 data-aos="fade-in">Our Status in Numbers</h3>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>{{ourStatusTotalUsers.status}}+</span>/ Total Users
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>{{ourStatusYearsofExperience.status}}+</span>/ Years of Experience
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <!-- <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>1430+</span>/ Branches
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div>
+                    <div class="status__wrap" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fa-solid fa-umbrella"></i>
+                        </div>
+                        <div class="text">
+                            <div class="top">
+                                <span>1430+</span>/ In-house Staffs
+                            </div>
+                            <p>So blinded by desire, that they cannot foresee the pain and trouble that are bound to
+                                ensue.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg overflow-hidden">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>Our Special Team</h5>
+        </div>
+        <div class="row justify-content-center">
+            {% for ourteam in ourteams %}
+            <div class="col-lg-3 mb-4 mb-lg-0" data-aos="fade-up">
+                <div class="card__3">
+                    <div class="top">
+                        <div class="author">
+                            <h3>{{ourteam.name}}</h3>
+                            <p class="position">
+                                {{ourteam.position}}
+                            </p>
+                        </div>
+                        <div class="auth__img">
+                            <img src="{{ourteam.image.url}}" alt="{{ourteam.image}}" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="body">
+                        <p>
+                            {{ourteam.info}}
+                        </p>
+                        <div class="socials">
+                            {% if ourteam.facebook_link %}
+                            <a href="{{ourteam.facebook_link}}" target="_blank"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            {% endif %}
+                            {% if ourteam.instagram_link %}
+                            <a href="{{ourteam.instagram_link}}" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            {% endif %}
+                            {% if ourteam.twitter_link %}
+                            <a href="{{ourteam.twitter_link}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg__yellow" data-aos="fade-in">
+    <div class="container">
+        <div class="testimonial__slide splide" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for testimonial in testimonials %}
+                    <li class="splide__slide">
+                        <div class="card__4">
+                            <p class="desc">
+                                {{testimonial.spoken_words}}
+                            </p>
+                            <div class="auth__img">
+                                <img src="{{testimonial.image.url}}" alt="{{testimonial.image}}" class="img-fluid">
+                            </div>
+                            <h3>{{testimonial.name}}<span>/ {{testimonials.position}}</span> </h3>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="custom__bg__yellow overflow-hidden">
+    <div class="container">
+        <div class="newsletter">
+            <div class="left" data-aos="fade-right">
+                <div class="text__wrap">
+                    <div class="img__wrap">
+                        <img src="{% static 'img/pose-wit-caption.jpg'%}" alt="" class="img-fluid">
+                    </div>
+
+                    <h6>Himalayan Nada Nirvana Yoga made just for Yoga Enthusiasts</h6>
+                    <p>
+                        Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a,
+                        ultricies
+                        in, diam. Sed arcu. Cras consequat.
+                    </p>
+                </div>
+            </div>
+            <div class="right" data-aos="fade-left">
+                <h2>Subscribe to Newsletter
+                    & Discover more</h2>
+                <p>
+                    Get all the latest news and offers we provide along with the special
+                    discounts we offer you!
+                </p>
+                <form action="{% url 'contact' %}" class="contact__form" method="POST">
+                    {% csrf_token %}
+                    <div class="form__wrap mb-3">
+                        <input type="text" placeholder="Name" required="" class="form-control" name="name">
+                    </div>
+                    <div class="form__wrap mb-3">
+                        <input type="text" placeholder="Email" required="" class="form-control" name="email">
+                    </div>
+                    <div class="form__wrap mb-3">
+                        <textarea required="" class="form-control" placeholder="Message" name="message"></textarea>
+                    </div>
+
+                    <button class="btn btn__1 mx-auto">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

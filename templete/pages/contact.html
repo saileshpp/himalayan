@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="custom__bg overflow-hidden">
+    <div class="container">
+        <div class="section__title" data-aos="fade-in">
+            <h5>LOCATION</h5>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33611.72411791854!2d85.21574329227485!3d27.686478633297085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb22e26c1f3089%3A0x76127015b4e03968!2sChandragiri!5e0!3m2!1sen!2snp!4v1664765727984!5m2!1sen!2snp"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+
+    </div>
+</section>
+<section>
+    <div class="custom__bg">
+        <div class="container">
+
+            <div class="section__title" data-aos="fade-in">
+                <h5>LEAVE US A MESSAGE</h5>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="custom__bg__yellow">
+    <div class="container">
+        <form action="{% url 'contact' %}" class="contact__form" method="POST">
+            {% csrf_token %}
+            <div class="form__wrap mb-3">
+                <input type="text" placeholder="Name" required="" class="form-control" name="name">
+            </div>
+            <div class="form__wrap mb-3">
+                <input type="text" placeholder="Email" required="" class="form-control" name="email">
+            </div>
+            <div class="form__wrap mb-3">
+                <textarea required="" class="form-control" placeholder="Message" name="message"></textarea>
+            </div>
+
+            <button class="btn btn__1 mx-auto">SEND MESSAGE</button>
+        </form>
+    </div>
+</section>
+<section class="custom__bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="section__title" data-aos="fade-in">
+                    <h5 class="mx-0">Get In Touch</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="location__card">
+                            <div class="icon"><i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h2>ADDRESS</h2>
+                            <p>Chandragiri - 6, Kathmandu</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="location__card">
+                            <div class="icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <h2>PHONE NUMBER</h2>
+                            <p>9841232350</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="location__card">
+                            <div class="icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <h2>EMAIL ID</h2>
+                            <p>himalayannadanirvanayoga@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="location__card">
+                            <div class="icon">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h2>OPENING HOURS</h2>
+                            <p>Sun – Fri 9 am to 8 pm</p>
+                            <p>Sat – 10 am to 3 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="section__title" data-aos="fade-in">
+                    <h5 class="mx-0">Special Offer</h5>
+                </div>
+                <div class="img__wrap">
+                    <img src="{% static 'img/add-image1.jpg' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
